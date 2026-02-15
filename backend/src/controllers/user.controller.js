@@ -74,7 +74,7 @@ export async function sendFriendRequest(req,res) {
         // check if a req already exists
         const existingRequest = await FriendRequest.findOne({
             $or: [
-                { sender: myId , recipient: recipientId},,
+                { sender: myId , recipient: recipientId},
                 { sender: recipientId , recipient: myId}
             ],
         });

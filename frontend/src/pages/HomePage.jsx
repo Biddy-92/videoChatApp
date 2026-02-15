@@ -39,8 +39,14 @@ const HomePage = () => {
 
   const { mutate: sendRequestMutation, isPending } = useMutation({
     mutationFn: sendFriendRequest,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] }),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] }),
+    onError: (err) => {
+      console.log("Friend request error:", err?.response?.data);
+      alert(err?.response?.data?.message || "Request failed");
+    },
   });
+
 
   useEffect(() => {
     const outgoingIds = new Set();
