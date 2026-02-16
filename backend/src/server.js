@@ -24,9 +24,9 @@ app.use(
   })
 );
 
-app.get("/", (req,res) => {
-    res.send("Hello Bro! I am Bidhan CKB from Comilla")
-})
+// app.get("/", (req,res) => {
+//     res.send("Hello Bro! I am Bidhan CKB from Comilla")
+// })
 
 app.use(express.json());
 app.use(cookieParser());
